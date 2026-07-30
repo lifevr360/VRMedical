@@ -10,6 +10,11 @@ public class SnapToTarget : MonoBehaviour
     [Header("Options")]
     [SerializeField] private bool disableGhostOnSnap = true;   // uncheck to keep the ghost visible after snap
 
+    [Header("Scenario 2 - swap on snap")]
+    [SerializeField] private GameObject knobHandle;            // handle 3 (XRKnob) - enabled on snap
+    [SerializeField] private bool disableSelfOnSnap = true;    // disable the carry handle (this object) on snap
+    public UnityEngine.Events.UnityEvent onSnapped;            // fired after a successful snap
+
     private Rigidbody rb;
     private XRGrabInteractable grab;
     private Blink ghostBlink;
@@ -75,9 +80,16 @@ public class SnapToTarget : MonoBehaviour
 
         // 3. Stop blinking, prevent re-grab, optionally hide ghost
         if (ghostBlink != null) ghostBlink.isBlink = false;
-        if (grab != null) grab.enabled = false;
+        if (grab != null) grab.enabled = true;
         if (disableGhostOnSnap) dropGhost.SetActive(false);
 
         snapped = true;
+
+        Debug.Log($"[SnapToTarget] '{gameObject.name}' snapped to '{dropGhost.name}'.");
+
+        // Scenario 2 swap: bring in the knob handle, notify, then hide the carry handle.
+        if (knobHandle != null) knobHandle.SetActive(true);
+        onSnapped?.Invoke();
+        if (disableSelfOnSnap) gameObject.SetActive(false);
     }
 }
