@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MedicalVR/MedicalVR.unity
     guid: 9053a3a70e4ac5b4f9dd5dd6ad131cad
   - enabled: 1
-    path: Assets/Scenes/FireExtinguisher/FireExtinguisher_New.unity
+    path: Assets/Scenes/FireExtinguisher/FireExtinguisher.unity
     guid: 6ec57bd31732724438cfdd1689bdd32a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
