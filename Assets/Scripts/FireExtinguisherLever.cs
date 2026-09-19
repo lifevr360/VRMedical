@@ -28,9 +28,15 @@ public class FireExtinguisherLever : MonoBehaviour
 
     private void Awake()
     {
-        // Start hidden even if the smoke object is left active / Play On Awake in the scene.
         if (smokeEffect != null)
+        {
+            // Lets ExtinguishableFire tell this spray apart from other particle systems.
+            if (!smokeEffect.TryGetComponent<ExtinguishingSpray>(out _))
+                smokeEffect.gameObject.AddComponent<ExtinguishingSpray>();
+
+            // Start hidden even if the smoke object is left active / Play On Awake in the scene.
             smokeEffect.gameObject.SetActive(false);
+        }
 
         if (leverPivot == null)
         {

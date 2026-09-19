@@ -39780,6 +39780,52 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &330722469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 330722471}
+  - component: {fileID: 330722470}
+  m_Layer: 0
+  m_Name: BurstCollisionWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &330722470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330722469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cellSpans:
+    m_AlignBytes: 16
+--- !u!4 &330722471
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330722469}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &344467839
 GameObject:
   m_ObjectHideFlags: 0
@@ -49679,6 +49725,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 354761574}
+  - component: {fileID: 354761575}
+  - component: {fileID: 354761576}
   m_Layer: 0
   m_Name: BunkBed
   m_TagString: Untagged
@@ -49703,6 +49751,45 @@ Transform:
   - {fileID: 4789234043339716163}
   m_Father: {fileID: 543450653511792533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &354761575
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354761573}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.245488, y: 1.5972556, z: 1}
+  m_Center: {x: 0.09350431, y: 0.7411669, z: 0}
+--- !u!114 &354761576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354761573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e0ac987d785df49abb266ecc662199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffects: {fileID: 128850010}
+  polishedObject: {fileID: 2326757367986798866}
+  burnedObject: {fileID: 3715068629492224397}
+  whiteSmoke: {fileID: 697603122}
+  secondsToExtinguish: 2
+  fireDieDownSeconds: 1.5
 --- !u!1 &368356024
 GameObject:
   m_ObjectHideFlags: 0
@@ -69187,6 +69274,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 554518144}
+  - component: {fileID: 554518145}
+  - component: {fileID: 554518146}
   m_Layer: 0
   m_Name: Rack_1
   m_TagString: Untagged
@@ -69211,6 +69300,45 @@ Transform:
   - {fileID: 4847865967730195308}
   m_Father: {fileID: 543450653511792533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &554518145
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554518143}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7554946, y: 1.6829623, z: 1}
+  m_Center: {x: 0.00436759, y: 0.017871082, z: 0}
+--- !u!114 &554518146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554518143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e0ac987d785df49abb266ecc662199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffects: {fileID: 8829451550382258478}
+  polishedObject: {fileID: 9044630771872248410}
+  burnedObject: {fileID: 2119922881595447074}
+  whiteSmoke: {fileID: 1155611328}
+  secondsToExtinguish: 2
+  fireDieDownSeconds: 1.5
 --- !u!1 &597112896
 GameObject:
   m_ObjectHideFlags: 0
@@ -98452,52 +98580,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1498696728}
   m_LocalEulerAnglesHint: {x: 2.131, y: 33.462, z: -106.571}
---- !u!1 &870646353
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 870646355}
-  - component: {fileID: 870646354}
-  m_Layer: 0
-  m_Name: BurstCollisionWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &870646354
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870646353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1a161c4294214a4fbcb7e9e94800494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cellSpans:
-    m_AlignBytes: 16
---- !u!4 &870646355
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 870646353}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1052640055
 GameObject:
   m_ObjectHideFlags: 0
@@ -127647,6 +127729,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1230780665}
+  - component: {fileID: 1230780666}
+  - component: {fileID: 1230780667}
   m_Layer: 0
   m_Name: TVUnit
   m_TagString: Untagged
@@ -127671,6 +127755,45 @@ Transform:
   - {fileID: 4013074356411677365}
   m_Father: {fileID: 543450653511792533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1230780666
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230780664}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.885972, y: 1.6829623, z: 1}
+  m_Center: {x: -0.049918175, y: 0.017871082, z: 0}
+--- !u!114 &1230780667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230780664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e0ac987d785df49abb266ecc662199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffects: {fileID: 1052640055}
+  polishedObject: {fileID: 1326430505891058501}
+  burnedObject: {fileID: 4113562239952672244}
+  whiteSmoke: {fileID: 234381091}
+  secondsToExtinguish: 2
+  fireDieDownSeconds: 1.5
 --- !u!1 &1271287324
 GameObject:
   m_ObjectHideFlags: 0
@@ -167309,6 +167432,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1773551016}
+  - component: {fileID: 1773551017}
+  - component: {fileID: 1773551018}
   m_Layer: 0
   m_Name: Rack_2
   m_TagString: Untagged
@@ -167333,6 +167458,45 @@ Transform:
   - {fileID: 5146645440638201828}
   m_Father: {fileID: 543450653511792533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1773551017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773551015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7554946, y: 1.6829623, z: 1}
+  m_Center: {x: 0.00436759, y: 0.017871082, z: 0}
+--- !u!114 &1773551018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773551015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e0ac987d785df49abb266ecc662199, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireEffects: {fileID: 2132593824}
+  polishedObject: {fileID: 1234856488935736996}
+  burnedObject: {fileID: 3839044810345337072}
+  whiteSmoke: {fileID: 1168342888}
+  secondsToExtinguish: 2
+  fireDieDownSeconds: 1.5
 --- !u!1 &1780184830
 GameObject:
   m_ObjectHideFlags: 0
@@ -249874,4 +250038,4 @@ SceneRoots:
   - {fileID: 7578513823358268787}
   - {fileID: 1614690784}
   - {fileID: 1306747767}
-  - {fileID: 870646355}
+  - {fileID: 330722471}
