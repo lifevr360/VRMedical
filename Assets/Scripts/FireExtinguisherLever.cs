@@ -5,12 +5,14 @@ using UnityEngine;
 /// and back to its rest angle when it is released.
 /// Both angles are absolute local euler values -- what you type here is what the
 /// pivot's Rotation field will read in the inspector.
+/// The smoke particle system is switched on (enabled + played) while grabbed and off (stopped + disabled) on release.
 /// Hook OnGrabbed / OnReleased to the XR Grab Interactable's Select Entered / Select Exited events.
 /// </summary>
 public class FireExtinguisherLever : MonoBehaviour
 {
     [Header("References")]
     [SerializeField] private Transform leverPivot;              // HandleHInge
+    [SerializeField] private ParticleSystem smokeEffect;        // this extinguisher's smoke; optional
 
     [Header("Poses (absolute local rotation)")]
     [SerializeField] private Vector3 restEuler = Vector3.zero;
@@ -26,6 +28,10 @@ public class FireExtinguisherLever : MonoBehaviour
 
     private void Awake()
     {
+        // Start hidden even if the smoke object is left active / Play On Awake in the scene.
+        if (smokeEffect != null)
+            smokeEffect.gameObject.SetActive(false);
+
         if (leverPivot == null)
         {
             Debug.LogError("FireExtinguisherLever: leverPivot is not assigned.", this);
@@ -36,16 +42,28 @@ public class FireExtinguisherLever : MonoBehaviour
         leverPivot.localEulerAngles = restEuler;
     }
 
-    /// <summary>Called on grab. Swings the lever up to the carry handle.</summary>
+    /// <summary>Called on grab. Swings the lever up to the carry handle and starts the smoke.</summary>
     public void OnGrabbed()
     {
         target = 1f;
+
+        if (smokeEffect != null)
+        {
+            smokeEffect.gameObject.SetActive(true);
+            smokeEffect.Play();
+        }
     }
 
-    /// <summary>Called on release. Springs the lever back to rest.</summary>
+    /// <summary>Called on release. Springs the lever back to rest and stops the smoke.</summary>
     public void OnReleased()
     {
         target = 0f;
+
+        if (smokeEffect != null)
+        {
+            smokeEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+            smokeEffect.gameObject.SetActive(false);
+        }
     }
 
     private void Update()
