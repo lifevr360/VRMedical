@@ -25,6 +25,11 @@ public class ExtinguishableFire : MonoBehaviour
     private int lastHitFrame = -1;
     private bool extinguished;
 
+    /// <summary>Raised once, the moment this fire is put out (after the swap to the burned object).</summary>
+    public event System.Action<ExtinguishableFire> Extinguished;
+
+    public bool IsExtinguished => extinguished;
+
 
     private void Awake()
     {
@@ -73,6 +78,7 @@ public class ExtinguishableFire : MonoBehaviour
         whiteSmoke.Play();
 
         StartCoroutine(PutOutFire());
+        Extinguished?.Invoke(this);
     }
 
     private IEnumerator PutOutFire()

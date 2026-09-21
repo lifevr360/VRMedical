@@ -6,6 +6,7 @@ using UnityEngine;
 /// Both angles are absolute local euler values -- what you type here is what the
 /// pivot's Rotation field will read in the inspector.
 /// The smoke particle system is switched on (enabled + played) while grabbed and off (stopped + disabled) on release.
+/// The nozzle hand's controller vibrates for as long as the smoke plays (see NozzleHaptics).
 /// Hook OnGrabbed / OnReleased to the XR Grab Interactable's Select Entered / Select Exited events.
 /// </summary>
 public class FireExtinguisherLever : MonoBehaviour
@@ -13,6 +14,7 @@ public class FireExtinguisherLever : MonoBehaviour
     [Header("References")]
     [SerializeField] private Transform leverPivot;              // HandleHInge
     [SerializeField] private ParticleSystem smokeEffect;        // this extinguisher's smoke; optional
+    [SerializeField] private NozzleHaptics nozzleHaptics;       // vibrates the nozzle hand while spraying; optional
 
     [Header("Poses (absolute local rotation)")]
     [SerializeField] private Vector3 restEuler = Vector3.zero;
@@ -58,6 +60,9 @@ public class FireExtinguisherLever : MonoBehaviour
             smokeEffect.gameObject.SetActive(true);
             smokeEffect.Play();
         }
+
+        if (nozzleHaptics != null)
+            nozzleHaptics.SetSpraying(true);
     }
 
     /// <summary>Called on release. Springs the lever back to rest and stops the smoke.</summary>
@@ -70,6 +75,9 @@ public class FireExtinguisherLever : MonoBehaviour
             smokeEffect.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
             smokeEffect.gameObject.SetActive(false);
         }
+
+        if (nozzleHaptics != null)
+            nozzleHaptics.SetSpraying(false);
     }
 
     private void Update()
