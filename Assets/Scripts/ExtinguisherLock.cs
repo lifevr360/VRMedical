@@ -30,6 +30,12 @@ public class ExtinguisherLock : MonoBehaviour
     private Vector3 grabPinOffset;              // how far out the pin already was when grabbed
     private bool pulled;
 
+    /// <summary>True once the pin has been pulled out and the handle is unlocked.</summary>
+    public bool IsPulled => pulled;
+
+    /// <summary>True once the pin has been grabbed at least once.</summary>
+    public bool HasBeenGrabbed { get; private set; }
+
 
     private void Awake()
     {
@@ -69,6 +75,7 @@ public class ExtinguisherLock : MonoBehaviour
     {
         StopAllCoroutines();        // a spring-back may still be running
 
+        HasBeenGrabbed = true;
         holder = args.interactorObject;
         grabHandLocal = ToParentSpace(HandPosition());
         grabPinOffset = transform.localPosition - restLocalPosition;
